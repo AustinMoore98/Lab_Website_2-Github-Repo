@@ -81,10 +81,27 @@ function changeColor(color){
 */
 function loadStatsPage(){
 	var table = document.getElementById("stats_table");
-	
+	var wins = 0;
+	var losses = 0;
+
 	for(var i =0; i < table.rows.length; i++){
-		console.log(table[i]);
+		if(table.rows[i].cells[2] > table.rows[i].cells[3])
+		{
+			table.rows[i].cells[4] = "CU Boulder";
+			wins += 1;
+		}
+		else
+		{
+			table.rows[i].cells[4] = table.rows[i].cells[1];
+			losses += 1;
+		}
 	}
+
+	var NumofWins = document.getElementById("wins");
+	var NumofLosses = document.getElementById("losses");
+
+	NumofLosses = losses;
+	NumofWins = wins;
 }
 /*
 	Football Player Information Page
